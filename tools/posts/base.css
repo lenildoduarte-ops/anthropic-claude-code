@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1350px;overflow:hidden}
+body{font-family:Inter,sans-serif;color:#fff;background:#0b0f1a;position:relative}
+.d{font-family:Anton,Impact,sans-serif;text-transform:uppercase;line-height:.95;letter-spacing:.005em}
+.handle{position:absolute;bottom:52px;left:72px;font:600 26px Inter;letter-spacing:.06em;opacity:.85}
+.tag{position:absolute;bottom:52px;right:72px;font:600 22px Inter;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
+.bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.grain{position:absolute;inset:0;opacity:.09;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}

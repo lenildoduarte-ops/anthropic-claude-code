@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="base.css"><style>
+.half{position:absolute;left:0;right:0;height:675px;overflow:hidden}
+.top{top:0}.bot{bottom:0}
+.half img{width:100%;height:100%;object-fit:cover}
+.top:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 40%,#000a)}
+.bot img{filter:grayscale(.7) brightness(.55)}
+.bot:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#000c,#0008 50%,#000e)}
+.lbl{position:absolute;left:72px;right:72px;z-index:2}
+.lbl small{display:block;font:800 26px Inter;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
+.l1{bottom:52px}.l1 small{color:#e8c46a}.l1 .d{font-size:96px}
+.l2{top:70px}.l2 small{color:#8d96ad}.l2 .d{font-size:66px;line-height:1.05}
+.l2 .d span{color:#5b8cff}
+.cut{position:absolute;top:673px;left:0;right:0;height:5px;background:#5b8cff;z-index:3}
+</style>
+<div class="half top"><img src="bright.jpg"><div class="lbl l1"><small>O que as pessoas veem</small><div class="d">O resultado.</div></div></div>
+<div class="cut"></div>
+<div class="half bot"><img src="dark.jpg"><div class="lbl l2"><small>O que elas não veem</small><div class="d">5h40 da manhã.<br>Tatame vazio.<br><span>Corpo pedindo pra ficar em casa.</span></div></div></div>
+<div class="grain"></div><div class="handle">@lenildo.ads</div><div class="tag">Jiu-Jitsu · Negócios</div>
