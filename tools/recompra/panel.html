@@ -1,0 +1,82 @@
+<html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1120;--card:#121b31;--line:#24324f;--mut:#8a96b3;--y:#ffd400;--g:#33d17a;--b:#4d7cff}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;background:transparent;overflow:hidden;font-family:Inter,sans-serif;color:#eef2fa}
+.abs{position:absolute}
+#top{left:0;top:0;width:1080px;height:960px;background:radial-gradient(110% 80% at 50% 20%,#17223f 0%,#0b1120 65%);overflow:hidden}
+.div{left:0;right:0;top:956px;height:8px;background:var(--y)}
+.steps{left:60px;right:60px;top:160px;display:flex;gap:10px}
+.st{flex:1;text-align:center;font:800 21px Inter;letter-spacing:.1em;text-transform:uppercase;padding:12px 0;border-radius:12px;background:#121b31;color:#5f6c8c;border:2px solid #1d2842}
+.st.on{background:var(--y);color:#111;border-color:var(--y)}.st.done{color:var(--y);border-color:rgba(255,212,0,.35)}
+.scene{left:55px;top:205px;width:880px;height:640px;zoom:1.1}
+.h{font:800 24px Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--y);margin-bottom:14px}
+.t{font:900 54px/1.08 Inter;letter-spacing:-.01em;margin-bottom:22px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:30px 34px}
+.f{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:2px solid #1b2640;font:700 32px Inter;color:var(--mut)}
+.f:last-child{border:0}.f b{color:#eef2fa;font-weight:800}
+.f.hl{color:#111;background:var(--y);border-radius:16px;padding:18px 22px;margin:6px -22px}.f.hl b{color:#111}
+.tl{position:relative;height:250px;margin-top:10px}
+.axis{position:absolute;left:20px;right:20px;top:120px;height:6px;background:#24324f;border-radius:3px}
+.pt{position:absolute;top:100px;width:46px;height:46px;border-radius:50%;background:var(--b);border:6px solid var(--bg);margin-left:-23px}
+.pl{position:absolute;top:160px;font:800 26px Inter;color:var(--mut);transform:translateX(-50%)}
+.br{position:absolute;top:30px;height:44px;border:4px solid var(--y);border-bottom:0;border-radius:14px 14px 0 0}
+.brl{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--y);color:#111;font:900 26px Inter;padding:6px 16px;border-radius:10px;white-space:nowrap}
+.bar{height:34px;border-radius:17px;background:#1b2640;overflow:hidden;margin-top:16px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--b),var(--y))}
+.msg{background:#1f6f4a;border-radius:28px 28px 28px 8px;padding:26px 30px;font:600 34px/1.35 Inter;max-width:780px}
+.meta{font:700 24px Inter;color:var(--mut);margin-top:14px}
+.chip{display:inline-block;background:rgba(255,212,0,.14);color:var(--y);font:800 26px Inter;padding:10px 18px;border-radius:12px;margin-right:12px}
+.flow{display:flex;align-items:center;gap:14px;margin-top:12px}
+.nd{flex:1;text-align:center;font:900 30px Inter;padding:24px 10px;border-radius:20px;background:#17223a;border:2px solid var(--line)}
+.ar{font:900 40px Inter;color:var(--y)}
+.lbl{font:800 22px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-top:18px}
+.res{display:flex;gap:14px;margin-top:20px}
+.r{flex:1;background:rgba(51,209,122,.12);border:2px solid rgba(51,209,122,.4);border-radius:18px;padding:18px;text-align:center;font:900 30px Inter;color:var(--g)}
+.sub{left:50px;right:50px;top:1630px;display:flex;flex-wrap:wrap;justify-content:center;column-gap:22px;row-gap:8px;font:900 60px/1.12 Inter;text-transform:uppercase;
+ text-shadow:0 4px 0 #000,0 0 18px rgba(0,0,0,.85),3px 3px 0 #000,-3px -3px 0 #000,3px -3px 0 #000,-3px 3px 0 #000}
+.sub span{display:inline-block}
+.sub .on{color:var(--y)}
+.sub .key{background:var(--y);color:#111;text-shadow:none;padding:0 14px;border-radius:12px;box-shadow:0 6px 0 #000}
+.sub .key.on{transform:scale(1.06) rotate(-2deg);box-shadow:0 6px 0 #000,0 0 30px rgba(255,212,0,.7)}
+</style></head><body>
+<div id="top" class="abs"><div class="abs steps" id="steps"></div><div class="abs scene" id="sc"></div></div>
+<div class="abs div"></div>
+<div class="abs sub" id="sub"></div>
+<script>
+const W=[["Essa", 0.045], ["é", 0.355], ["a", 0.445], ["data", 0.555], ["de", 0.591], ["pedido,", 0.791], ["porque", 1.255], ["a", 1.855], ["gente", 1.945], ["consegue,", 2.164], ["com", 3.327], ["essa", 4.109], ["data", 4.345], ["de", 4.527], ["pedido,", 4.745], ["entender", 5.327], ["a", 5.818], ["periodicidade", 6.655], ["que", 7.127], ["aquele", 7.255], ["cliente", 7.436], ["compra,", 7.818], ["quanto", 8.764], ["tempo", 8.891], ["faz", 9.073], ["que", 9.255], ["ele", 9.364], ["já", 9.509], ["comprou,", 9.673], ["pra", 10.436], ["gente", 10.673], ["fazer", 10.982], ["uma", 11.273], ["nova", 11.418], ["abordagem", 11.582], ["pra", 11.891], ["ele.", 12.055], ["É", 12.155], ["muito", 12.355], ["bom", 12.573], ["a", 12.718], ["gente", 12.736], ["atender", 12.936], ["o", 13.191], ["lead,", 13.318], ["qualificar", 13.427], ["e", 14.045], ["tornar", 14.227], ["ele", 14.445], ["cliente,", 14.664], ["mas", 14.991], ["a", 15.1], ["gente", 15.136], ["também", 15.373], ["tem", 15.645], ["que", 15.809], ["cuidar", 15.991], ["da", 16.355], ["nossa", 16.718], ["base.", 17.264]];
+const KEY=new Set(["data","pedido","periodicidade","comprou","nova","abordagem","lead","qualificar","cliente","base"]);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),eo=p=>1-Math.pow(1-p,3),bk=p=>{p=p-1;return 1+2.7*p*p*p+1.7*p*p};
+const ap=(t,a,d=.3)=>{const p=cl((t-a)/d);return `opacity:${eo(p)};transform:translateY(${(1-eo(p))*30}px) scale(${.92+.08*bk(p)})`};
+const sv=(t,a,b)=>{const pi=eo(cl((t-a)/.3)),po=cl((b-t)/.2);return `opacity:${Math.min(pi,po)};transform:translateX(${(1-pi)*80}px)`};
+const SC=[0,4.0,10.35,12.1,99];
+window.scene=t=>{
+ const cur=t<4?0:t<10.35?1:t<12.1?2:3;
+ document.getElementById('steps').innerHTML=["1 · Dado","2 · Análise","3 · Aplicação","4 · Resultado"].map((s,i)=>`<div class="st ${i==cur?'on':i<cur?'done':''}">${s}</div>`).join('');
+ let h='';
+ if(t<4.05){h=`<div class="abs" style="inset:0;${sv(t,0,4.0)}"><div class="h">O dado</div><div class="t">Tudo começa na <span style="color:var(--y)">data do pedido</span></div>
+  <div class="card" style="${ap(t,.15)}"><div class="f"><span>Cliente</span><b>Maria S.</b></div><div class="f"><span>Produto</span><b>Kit Reposição</b></div>
+  <div class="f ${t>=.55?'hl':''}"><span>Data do pedido</span><b>12/09</b></div><div class="f"><span>Valor</span><b>R$ 189,90</b></div></div></div>`}
+ else if(t<10.4){const dts=["12/06","12/07","12/08","12/09"],xs=[8,34,60,86];const np=Math.floor(cl((t-4.4)/.25,0,4));
+  const bo=eo(cl((t-6.6)/.35)), pb=eo(cl((t-8.75)/1.1));
+  h=`<div class="abs" style="inset:0;${sv(t,4.0,10.35)}"><div class="h">A análise</div><div class="t">Qual a <span style="color:var(--y)">periodicidade</span> de compra?</div>
+  <div class="card"><div class="tl"><div class="axis"></div>`+dts.slice(0,np).map((d,i)=>`<div class="pt" style="left:${xs[i]}%"></div><div class="pl" style="left:${xs[i]}%">${d}</div>`).join('')+
+  `<div class="br" style="left:${xs[2]}%;width:${xs[3]-xs[2]}%;opacity:${bo}"><div class="brl">a cada 30 dias</div></div></div>
+  <div style="opacity:${eo(cl((t-8.7)/.3))}"><div style="display:flex;justify-content:space-between;font:800 30px Inter;margin-top:6px"><span>Última compra: <span style="color:var(--y)">há ${Math.round(28*pb)} dias</span></span><span style="color:var(--mut)">ciclo 30d</span></div>
+  <div class="bar"><i style="width:${93*pb}%"></i></div></div></div></div>`}
+ else if(t<12.15){h=`<div class="abs" style="inset:0;${sv(t,10.35,12.1)}"><div class="h">A aplicação</div><div class="t">Nova abordagem <span style="color:var(--y)">antes</span> de acabar</div>
+  <div style="${ap(t,10.5)}"><span class="chip">Gatilho: dia 28 do ciclo</span><span class="chip">WhatsApp</span></div>
+  <div class="msg" style="margin-top:26px;${ap(t,11.35,.35)}">Oi, Maria! Seu Kit Reposição deve estar acabando. Quer que eu já separe o próximo com frete grátis?</div>
+  <div class="meta" style="${ap(t,11.6)}">Enviado automaticamente · 09:02</div></div>`}
+ else {h=`<div class="abs" style="inset:0;${sv(t,12.1,99)}"><div class="h">Resultado esperado</div><div class="t">Captar <span style="color:var(--y)">e</span> cuidar da base</div>
+  <div class="lbl" style="margin-top:0;${ap(t,12.9)}">Novos leads</div>
+  <div class="flow"><div class="nd" style="${ap(t,13.2)}">Lead</div><div class="ar" style="${ap(t,13.35)}">→</div><div class="nd" style="${ap(t,13.45)}">Qualificar</div><div class="ar" style="${ap(t,14.5)}">→</div><div class="nd" style="${ap(t,14.6)};background:var(--y);color:#111;border-color:var(--y)">Cliente</div></div>
+  <div class="lbl" style="${ap(t,15.0)}">Base de clientes</div>
+  <div class="flow"><div class="nd" style="${ap(t,15.4)}">Base</div><div class="ar" style="${ap(t,15.9)}">⟳</div><div class="nd" style="${ap(t,16.2)};background:var(--g);color:#06210f;border-color:var(--g)">Recompra</div></div>
+  <div class="res"><div class="r" style="${ap(t,16.7)}">↑ Recompra</div><div class="r" style="${ap(t,16.9)}">↑ LTV</div><div class="r" style="${ap(t,17.1)}">↓ Custo/venda</div></div></div>`}
+ document.getElementById('sc').innerHTML=h;
+ const ch=[];let c=[];W.forEach(x=>{c.push(x);if(c.length>=3||/[,.]$/.test(x[0])){ch.push(c);c=[]}});if(c.length)ch.push(c);
+ let cu=null;for(let i=0;i<ch.length;i++){const s=ch[i][0][1]-.05,e=i+1<ch.length?ch[i+1][0][1]-.05:18.1;if(t>=s&&t<e&&t-ch[i][ch[i].length-1][1]<1.3)cu=ch[i]}
+ document.getElementById('sub').innerHTML=cu?cu.map((x,j)=>{const w=x[0].replace(/[,.]$/,''),nx=j+1<cu.length?cu[j+1][1]:99,on=t>=x[1]&&t<nx;return `<span class="${KEY.has(w.toLowerCase())?'key':''} ${on?'on':''}">${w}</span>`}).join(''):'';
+};
+</script></body></html>
