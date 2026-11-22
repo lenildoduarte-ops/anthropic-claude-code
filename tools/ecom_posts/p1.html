@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="base.css"><style>h1{font-size:56px}.legend{margin-top:20px}
+.hero{display:flex;align-items:center;gap:22px;margin-top:28px;background:var(--panel);border:2px solid var(--line);border-radius:26px;padding:26px 32px}
+.hero .lab{font:800 20px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.hero .v{font:900 46px Inter;margin-top:4px;white-space:nowrap}
+.hero .ar{font:900 50px Inter;color:var(--dim)}
+.hero .g{margin-left:auto;text-align:right}.hero .g .v{color:var(--up)}
+.rows{margin-top:22px;display:flex;flex-direction:column;gap:18px}
+.row .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.row .n{font:800 32px Inter}.row .pct{font:900 34px Inter;color:var(--up)}
+.bar{display:flex;align-items:center;gap:14px;height:32px;margin-top:5px}
+.bar b{display:block;height:100%;border-radius:0 6px 6px 0}
+.bar span{font:800 26px Inter;color:var(--fg)}.bar.y25 span{color:var(--mut)}
+.cta{margin-top:30px;font:800 26px Inter;color:var(--y)}
+</style>
+<div class="chip">E-commerce Brasil · 1º semestre</div>
+<h1>O e-commerce faturou <em>R$ 208 bilhões</em>. Veja quem levou a maior fatia.</h1>
+<div class="hero"><div><div class="lab">1º sem. 2025</div><div class="v" style="color:var(--mut)">R$ 178,3 bi</div></div><div class="ar">→</div>
+<div><div class="lab">1º sem. 2026</div><div class="v">R$ 208,4 bi</div></div><div class="g"><div class="lab">Crescimento</div><div class="v">▲ 16,9%</div></div></div>
+<div class="legend"><span><i style="background:var(--s25)"></i>1º sem. 2025</span><span><i style="background:var(--s26)"></i>1º sem. 2026</span><span style="margin-left:auto">em R$ bilhões</span></div>
+<div class="rows" id="rows"></div>
+<div class="save"><span><b>Salve</b> para o seu planejamento de 2027 e <b>envie</b> para um sócio.</span></div><div class="foot"><div class="src">Fonte: Confi/Neotrust, "Da Compra à Confiança", 1º semestre de 2026. Valores de 2025 calculados a partir do crescimento divulgado no estudo.</div><div class="handle">@lenildo.ads</div></div>
+<script>
+const D=[["Moda e Acessórios",15.7,19.3,"+23%"],["Saúde",10.6,15.5,"+46%"],["Televisores",7.1,9.2,"+29%"],["Canetas emagrecedoras",1.9,6.1,"+213%"]];
+const max=19.3,W=780,f=v=>v.toFixed(1).replace('.',',');
+document.getElementById('rows').innerHTML=D.map(([n,a,b,p])=>`<div class="row"><div class="top"><span class="n">${n}</span><span class="pct">▲ ${p}</span></div>
+<div class="bar y25"><b style="width:${a/max*W}px;background:var(--s25)"></b><span>${f(a)}</span></div>
+<div class="bar"><b style="width:${b/max*W}px;background:var(--s26)"></b><span>${f(b)}</span></div></div>`).join('');
+</script>
