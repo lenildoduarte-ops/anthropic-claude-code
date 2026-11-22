@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="v2.css"><style>
+h1{font-size:66px;margin-top:14px}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-top:22px}
+.hero .n{font-size:96px}
+.hero .s{font:600 17px/1.4 'JetBrains Mono';color:var(--mut);text-align:right}
+.top{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.r{display:grid;grid-template-columns:232px 1fr;align-items:center;padding:7px 0;border-bottom:1px solid var(--hair)}
+.r .nm{font:800 19px 'JetBrains Mono';text-transform:uppercase;line-height:1.15}
+.r .bx{display:flex;align-items:center;gap:12px}
+.r i{display:block;height:26px}
+.r .v{font:800 21px 'JetBrains Mono';white-space:nowrap}
+.r .m{font:500 13px 'JetBrains Mono';color:var(--mut);white-space:nowrap}
+.sol{background:var(--sig)}
+.hat{background:repeating-linear-gradient(135deg,var(--sig) 0 6px,rgba(229,84,28,.3) 6px 10px)}
+.nod{margin-top:14px;font:600 16px/1.45 'JetBrains Mono';color:var(--mut)}
+.nod b{color:var(--ink)}
+</style>
+<div class="reg" style="left:14px;top:14px"></div><div class="reg" style="right:14px;top:14px"></div><div class="reg" style="left:14px;bottom:14px"></div><div class="reg" style="right:14px;bottom:14px"></div>
+<div class="wrap">
+<h1 class="disp">Quanto fatura<br><span class="sig">cada nicho</span> da moda</h1>
+<div class="hero"><div><div class="lab">Vestuário + calçados · Brasil · 2025</div><div class="cond n">R$ 396 bi</div></div><div class="s">IEMI · varejo total<br>lojas físicas + online</div></div>
+<div class="top"><div class="key"><span><i class="sol" style="background:var(--sig)"></i>Dado de 2025</span><span><i class="hat"></i>2023 ou 2024</span></div><span class="lab">R$ bi / ano</span></div>
+<div id="ch"></div>
+<div class="nod"><b>Sem dado público confiável:</b> fitness, festa, noivas, alfaiataria, streetwear, fast fashion, bolsas, semijoias, relógios. <b>Não some as barras:</b> os nichos se sobrepõem (ex.: plus size está dentro de feminina).</div>
+<div class="foot"><span>FONTES: IEMI (VAREJO DE VESTUÁRIO, CALÇADOS, INFANTIL, PLUS SIZE, ÍNTIMA, UNIFORMES, PRAIA), ABIÓPTICA, SEBRAE, IBGM, BAIN & CO.<br>MERCADO TOTAL (FÍSICO + ONLINE). PROJEÇÕES E ANOS CONFORME CADA FONTE.</span><b>@lenildo.ads</b></div>
+</div>
+<script>
+const D=[["Feminina",140,"IEMI · 2025 · varejo",1],["Masculina",109,"IEMI · 2025 · varejo",1],["Calçados",81.5,"IEMI · 2025 · varejo",1],["Infantil e bebê",63.2,"IEMI · 2025 · varejo",1],
+["Óculos",28.1,"Abióptica · 2025 · setor óptico",1],["Brechó",24,"Sebrae · 2025 · projeção",1],["Joias",22,"IBGM · 2025 · varejo",1],["Luxo (moda)",21,"Bain · 2024",0],
+["Plus size",18.2,"IEMI · 2025",1],["Íntima e dormir",12.5,"IEMI · 2023 · indústria",0],["Uniformes",7.8,"IEMI · 2023",0],["Praia",7.6,"IEMI · 2023",0]];
+const W=470,max=140,f=v=>(Number.isInteger(v)?v:v.toFixed(1).replace('.',','));
+document.getElementById('ch').innerHTML=D.map(([n,v,m,y])=>`<div class="r"><div class="nm">${n}</div><div class="bx"><i class="${y?'sol':'hat'}" style="width:${Math.max(6,v/max*W)}px"></i><div><div class="v">R$ ${f(v)} bi</div><div class="m">${m}</div></div></div></div>`).join('');
+</script>
