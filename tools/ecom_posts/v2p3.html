@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="v2.css"><style>
+h1{font-size:64px;margin-top:14px}
+.sec{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);margin-top:18px;padding-bottom:6px}
+.sec .t{font:800 19px 'JetBrains Mono';letter-spacing:.1em;text-transform:uppercase}
+.sec .c{font:500 15px 'JetBrains Mono';color:var(--mut)}
+.g{display:grid;grid-template-columns:repeat(4,1fr)}
+.it{padding:8px 8px 7px 0;border-bottom:1px solid var(--hair)}
+.it .n{font:800 21px 'JetBrains Mono';display:flex;gap:6px;align-items:baseline}
+.it .n s{text-decoration:none;font:500 12px 'JetBrains Mono';color:var(--mut)}
+.it .e{font:500 16px/1.25 'JetBrains Mono';color:var(--mut);margin-top:3px}
+.it .tg{display:inline-block;font:800 14px 'JetBrains Mono';color:#fff;background:var(--sig);padding:2px 6px;margin-top:4px}
+</style>
+<div class="reg" style="left:14px;top:14px"></div><div class="reg" style="right:14px;top:14px"></div><div class="reg" style="left:14px;bottom:14px"></div><div class="reg" style="right:14px;bottom:14px"></div>
+<div class="wrap">
+<h1 class="disp">Moda online não é<br>um nicho. <span class="sig">São 35.</span></h1>
+<div id="map"></div>
+<div class="cta"><span>↳ <span class="sig">Salve</span> e escolha o seu nicho</span><span><span class="sig">Envie</span> para quem vende moda →</span></div>
+<div class="foot"><span>DADOS EM DESTAQUE: CONFI/NEOTRUST E AFTERSALE, "DA COMPRA À CONFIANÇA", 1º SEM. 2026.<br>▲ = CRESCIMENTO DO FATURAMENTO · DEV = TAXA DE DEVOLUÇÃO.</span><b>@lenildo.ads</b></div>
+</div>
+<script>
+const S=[["A","Por público",[["Feminina","vestidos, blusas"],["Masculina","camisetas, polos"],["Infantil","conjuntos, escolar","DEV 12–15%"],["Bebê","bodies, enxoval"],["Teen","tendências"],["Plus size","numeração ampliada"],["Gestante","maternidade"],["Moda modesta","peças longas"],["Agênero","peças unissex"],["Moda 50+","conforto, caimento"]]],
+["B","Por ocasião",[["Fitness","leggings, tops","DEV 15–18%"],["Esportiva","camisas de time","▲ +139%"],["Praia","biquínis, maiôs"],["Íntima","lingerie, cuecas"],["Homewear","pijamas e robes"],["Festa","festa e gala"],["Noivas","vestidos, véus"],["Alfaiataria","ternos, social"],["Jeanswear","calças, jaquetas"],["Uniformes","corporativo"]]],
+["C","Por modelo de negócio",[["Fast fashion","giro rápido"],["Slow fashion","peça durável"],["Brechó","second hand"],["Luxo","marcas premium"],["Streetwear","drops limitados"],["Autoral","marca de designer"],["Atacado","para lojistas"],["Aluguel","roupa alugada"]]],
+["D","Complementos",[["Calçados","tênis, sandálias","DEV 16–20%"],["Bolsas","bolsas, mochilas"],["Acessórios","cintos, bonés"],["Joias","ouro e prata"],["Semijoias","banhadas, bijus"],["Óculos","sol e armação"],["Relógios","analógico, smart"]]]];
+document.getElementById('map').innerHTML=S.map(([k,t,L])=>`<div class="sec"><span class="t">${k} · ${t}</span><span class="c">${L.length} vertentes</span></div><div class="g">`+
+L.map(([n,e,tg],i)=>`<div class="it"><div class="n"><s>${k}${String(i+1).padStart(2,'0')}</s>${n}</div><div class="e">${e}</div>${tg?`<span class="tg">${tg}</span>`:''}</div>`).join('')+`</div>`).join('');
+</script>
