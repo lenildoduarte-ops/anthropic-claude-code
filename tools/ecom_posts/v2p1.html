@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="v2.css"><style>
+h1{font-size:76px;margin-top:30px}
+.hero{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;margin-top:30px;border-bottom:2px solid var(--ink);padding-bottom:18px}
+.hero .n{font-size:118px}.hero .ar{font:500 44px 'JetBrains Mono';padding:0 18px 18px}
+.delta{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.delta .p{font:800 30px 'JetBrains Mono'}
+.chart{margin-top:30px;position:relative}
+.ax{position:absolute;top:0;bottom:0;width:1px;background:var(--hair)}
+.axl{position:absolute;top:-24px;font:500 14px 'JetBrains Mono';color:var(--mut);transform:translateX(-50%)}
+.r{display:grid;grid-template-columns:250px 1fr;align-items:center;margin-bottom:30px;position:relative}
+.r .nm{font:800 20px 'JetBrains Mono';text-transform:uppercase;letter-spacing:.02em;line-height:1.25}
+.r .nm small{display:block;font:800 22px 'JetBrains Mono';color:var(--sig);margin-top:4px}
+.b{height:34px;margin:4px 0;display:flex;align-items:center}
+.b i{display:block;height:100%}
+.b span{font:700 18px 'JetBrains Mono';margin-left:10px}
+.b.p span{color:var(--mut)}
+</style>
+<div class="reg" style="left:14px;top:14px"></div><div class="reg" style="right:14px;top:14px"></div><div class="reg" style="left:14px;bottom:14px"></div><div class="reg" style="right:14px;bottom:14px"></div>
+<div class="wrap">
+<div class="meta"><span><b>RELATÓRIO 01</b> / E-COMMERCE BR</span><span>H1·2025 → H1·2026</span></div>
+<h1 class="disp">Quem levou os<br><span class="sig" style="white-space:nowrap">R$ 208 bi</span> do<br>e&#8209;commerce</h1>
+<div class="hero"><div><div class="lab">Faturamento H1·2025</div><div class="cond n" style="color:var(--mut)">178,3</div></div><div class="ar">→</div><div><div class="lab">Faturamento H1·2026</div><div class="cond n">208,4</div></div></div>
+<div class="delta"><span class="lab">R$ bilhões · total do mercado</span><span class="p sig">▲ +16,9% a/a</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:34px"><div class="key"><span><i class="hatch"></i>H1·2025</span><span><i class="solid"></i>H1·2026</span></div><span class="lab">R$ bi</span></div>
+<div class="chart" id="ch" style="margin-top:44px"></div>
+<div class="cta"><span>↳ <span class="sig">Salve</span> para o planejamento 2027</span><span><span class="sig">Envie</span> para um sócio →</span></div><div class="foot"><span>FONTE: CONFI/NEOTRUST, "DA COMPRA À CONFIANÇA", 1º SEM. 2026.<br>VALORES DE 2025 CALCULADOS A PARTIR DO CRESCIMENTO DIVULGADO.</span><b>@lenildo.ads</b></div>
+</div>
+<script>
+const D=[["Moda e acessórios",15.7,19.3,"+23%"],["Saúde",10.6,15.5,"+46%"],["Televisores",7.1,9.2,"+29%"],["Canetas emagrecedoras",1.9,6.1,"+213%"]];
+const X0=250,W=650,max=20,f=v=>v.toFixed(1).replace('.',',');
+let h=[0,5,10,15,20].map(v=>`<div class="ax" style="left:${X0+v/max*W}px"></div><div class="axl" style="left:${X0+v/max*W}px">${v}</div>`).join('');
+h+=D.map(([n,a,b,p])=>`<div class="r"><div class="nm">${n}<small>▲ ${p}</small></div><div><div class="b p"><i class="hatch" style="width:${a/max*W}px"></i><span>${f(a)}</span></div><div class="b"><i class="solid" style="width:${b/max*W}px"></i><span>${f(b)}</span></div></div></div>`).join('');
+document.getElementById('ch').innerHTML=h;
+</script>

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+:root{--paper:#ecebe6;--ink:#0d0d0c;--mut:#6b6a63;--hair:#c9c7bf;--s25:#4f78c4;--s26:#e5541c;--sig:#e5541c}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden}
+body{background:var(--paper);color:var(--ink);font-family:'JetBrains Mono',monospace;position:relative;font-variant-numeric:tabular-nums;
+ background-image:linear-gradient(var(--hair) 1px,transparent 1px),linear-gradient(90deg,var(--hair) 1px,transparent 1px);background-size:54px 54px;background-position:-1px -1px}
+body:before{content:"";position:absolute;inset:0;background:radial-gradient(90% 70% at 50% 45%,rgba(236,235,230,.86),rgba(236,235,230,.55))}
+.wrap{position:absolute;inset:54px;}
+.reg{position:absolute;width:26px;height:26px}
+.reg:before,.reg:after{content:"";position:absolute;background:var(--ink)}
+.reg:before{left:12px;top:0;width:2px;height:26px}.reg:after{top:12px;left:0;height:2px;width:26px}
+.meta{display:flex;justify-content:space-between;font:500 19px 'JetBrains Mono';letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.meta b{font-weight:800}
+.disp{font-family:Archivo,sans-serif;font-stretch:125%;font-weight:900;letter-spacing:-.035em;line-height:.9;text-transform:uppercase}
+.cond{font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;letter-spacing:-.01em;line-height:.88}
+.sig{color:var(--sig)}
+.lab{font:700 17px 'JetBrains Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.hatch{background:repeating-linear-gradient(135deg,var(--s25) 0 6px,rgba(79,120,196,.35) 6px 10px)}
+.solid{background:var(--s26)}
+.foot{position:absolute;left:0;right:0;bottom:0;border-top:2px solid var(--ink);padding-top:12px;display:flex;justify-content:space-between;gap:24px;font:500 15px/1.45 'JetBrains Mono';color:var(--mut)}
+.foot b{color:var(--ink);font-weight:800;font-size:20px;white-space:nowrap}
+.key{display:flex;gap:26px;font:700 17px 'JetBrains Mono';text-transform:uppercase;letter-spacing:.08em}
+.key i{display:inline-block;width:34px;height:16px;vertical-align:-2px;margin-right:10px}
+.cta{position:absolute;left:0;right:0;bottom:78px;display:flex;justify-content:space-between;align-items:center;font:800 21px 'JetBrains Mono';text-transform:uppercase;letter-spacing:.04em;border-top:2px dashed var(--ink);padding-top:16px}
+.cta .sig{font-weight:800}

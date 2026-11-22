@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="v2.css"><style>
+h1{font-size:70px;margin-top:30px}
+.split{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);margin-top:30px}
+.split>div{padding:18px 0 16px}.split>div+div{border-left:2px solid var(--ink);padding-left:26px}
+.split .n{font-size:104px;margin-top:6px}.split .s{font:600 18px/1.4 'JetBrains Mono';color:var(--mut);margin-top:6px}
+.sec{display:flex;justify-content:space-between;align-items:center;margin-top:30px}
+.r{margin-top:28px}.r .top{display:flex;justify-content:space-between;font:800 22px 'JetBrains Mono';text-transform:uppercase;margin-bottom:6px}
+.b{height:34px;margin:5px 0;display:flex;align-items:center}.b i{display:block;height:100%}.b span{font:700 18px 'JetBrains Mono';margin-left:10px}.b.p span{color:var(--mut)}
+.warn{margin-top:40px;border:2px solid var(--ink);position:relative}
+.warn .hd{background:var(--ink);color:var(--paper);font:800 18px 'JetBrains Mono';letter-spacing:.1em;text-transform:uppercase;padding:10px 16px;display:flex;justify-content:space-between}
+.cells{display:grid;grid-template-columns:repeat(3,1fr)}
+.cell{padding:14px 16px}.cell+.cell{border-left:2px solid var(--ink)}
+.cell .n{font-size:64px;margin-top:4px}
+.wn{border-top:2px solid var(--ink);padding:12px 16px;font:600 18px 'JetBrains Mono'}
+</style>
+<div class="reg" style="left:14px;top:14px"></div><div class="reg" style="right:14px;top:14px"></div><div class="reg" style="left:14px;bottom:14px"></div><div class="reg" style="right:14px;bottom:14px"></div>
+<div class="wrap">
+<div class="meta"><span><b>RELATÓRIO 02</b> / MODA ONLINE</span><span>H1·2025 → H1·2026</span></div>
+<h1 class="disp">Moda lidera.<br><span class="sig">O esporte</span> virou<br>o jogo.</h1>
+<div class="split"><div><div class="lab">Moda e acessórios · H1·2026</div><div class="cond n">R$ 19,3 bi</div><div class="s">era R$ 15,7 bi · <span class="sig" style="font-weight:800">▲ +23%</span></div></div>
+<div><div class="lab">Camisa da Seleção</div><div class="cond n">48,7%</div><div class="s">das vendas de camisas esportivas<br>era 5,1% em H1·2025</div></div></div>
+<div class="sec"><span class="lab" style="color:var(--ink)">Subnichos em alta</span><div class="key"><span><i class="hatch"></i>H1·2025</span><span><i class="solid"></i>H1·2026</span></div></div>
+<div id="rows"></div>
+<div class="warn"><div class="hd"><span>Atenção: taxa de devolução</span><span>Aftersale</span></div>
+<div class="cells"><div class="cell"><div class="lab">Calçados</div><div class="cond n">16–20%</div></div><div class="cell"><div class="lab">Moda fitness</div><div class="cond n">15–18%</div></div><div class="cell"><div class="lab">Moda</div><div class="cond n">12–18%</div></div></div>
+<div class="wn"><span class="sig" style="font-weight:800">55%</span> das trocas e devoluções são por problema de TAMANHO.</div></div>
+<div class="cta"><span>↳ <span class="sig">Salve</span> para o planejamento 2027</span><span><span class="sig">Envie</span> para um sócio →</span></div><div class="foot"><span>FONTE: CONFI/NEOTRUST E AFTERSALE, "DA COMPRA À CONFIANÇA", 1º SEM. 2026.<br>VALORES DE 2025 CALCULADOS A PARTIR DO CRESCIMENTO DIVULGADO.</span><b>@lenildo.ads</b></div>
+</div>
+<script>
+const D=[["Vestuário esportivo",794,1900,"+139%"],["Camisas esportivas",576,1000,"+74%"]];
+const W=780,max=2000,f=v=>v>=1000?'R$ '+(v/1000).toFixed(1).replace('.',',')+' bi':'R$ '+v+' mi';
+document.getElementById('rows').innerHTML=D.map(([n,a,b,p])=>`<div class="r"><div class="top"><span>${n}</span><span class="sig">▲ ${p}</span></div><div class="b p"><i class="hatch" style="width:${a/max*W}px"></i><span>${f(a)}</span></div><div class="b"><i class="solid" style="width:${b/max*W}px"></i><span>${f(b)}</span></div></div>`).join('');
+</script>
